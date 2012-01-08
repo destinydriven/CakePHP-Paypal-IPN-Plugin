@@ -196,6 +196,9 @@ class PaypalHelper extends AppHelper {
 
 		if ($encryptedFields === false) {
 			foreach ($options as $name => $value) {
+				if ($name == 'test' && !$value) {
+					continue;
+				}
 				$retval .= $this->__hiddenNameValue($name, $value);
 			}
 		} else {
